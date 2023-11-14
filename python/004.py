@@ -18,17 +18,17 @@ def hebing(nums1, nums2) -> list[int]:
 
 
 class Solution:
-    def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
-        i = 0
-        j = 0
-        k = 0
-        num = []
-        if (len(nums1) + len(nums2))%2 == 0:
-            result = (float(num[-1]) + float(num[-2]))/2
+    def findMedianSortedArrays( nums1: list[int], nums2: list[int]) -> float:
+        nums1.extend(nums2)
+        nums1.sort()
+        if len(nums1)%2 == 0:
+            mid = int(len(nums1)/2)
+            result = (float(nums1[mid - 1]) + float(nums1[mid]))/2
         else:
-            result = float(num[-1])
+            mid = int((len(nums1)+1)/2)
+            result = float(nums1[mid - 1])
         return result
 
 nums1 = [1, 3]; nums2 = [2]
-result = Solution.lengthOfLongestSubstring(nums1, nums2)
+result = Solution.findMedianSortedArrays(nums1, nums2)
 print(result)
