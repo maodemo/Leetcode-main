@@ -18,6 +18,6 @@ class Solution:
                 self.boolnum = False
                 break
 
-x = 00
+x = 0
 result = Solution()
 print(result.isPalindrome(x))
